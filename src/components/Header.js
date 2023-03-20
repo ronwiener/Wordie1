@@ -9,7 +9,7 @@ class Header extends React.Component {
           <span
             style={{
               fontSize: "80px",
-              backgroundColor: "#282c34",
+              backgroundColor: "#435057",
               color: "lightgreen",
             }}
           >
