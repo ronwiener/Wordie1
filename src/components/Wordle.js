@@ -19,7 +19,7 @@ export default function Wordle({ solution }) {
       window.removeEventListener("keyup", handleKeyup);
     }
 
-    if (turn > 5 && isCorrect) {
+    if (turn > 5 && !isCorrect) {
       setTimeout(() => {
         setMessage("Sorry, the word is: " + solution);
       }, 2000);
