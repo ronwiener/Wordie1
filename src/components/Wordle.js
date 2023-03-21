@@ -21,7 +21,7 @@ export default function Wordle({ solution }) {
 
     if (turn > 5 && !isCorrect) {
       setTimeout(() => {
-        setMessage("Sorry, the word is: " + solution);
+        setMessage("Sorry, the word is: " + solution.toUpperCase());
       }, 2000);
       window.removeEventListener("keyup", handleKeyup);
     }
@@ -40,7 +40,7 @@ export default function Wordle({ solution }) {
         {message}
       </div>
       <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />
-      <Keypad1 usedKeys={usedKeys} handleKeyup={handleKeyup} />
+      <Keypad1 usedKeys={usedKeys} onClick={(key) => handleKeyup({ key })} />
     </>
   );
 }
