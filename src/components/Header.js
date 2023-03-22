@@ -1,37 +1,35 @@
 import React from "react";
+import Buttons from "./Buttons";
 
-class Header extends React.Component {
-  render() {
-    return (
-      <div>
-        <div style={{ fontSize: "2.5em", color: "white" }}>
-          🅆 🄾{" "}
-          <span
-            style={{
-              fontSize: "80px",
-              backgroundColor: "#435057",
-              color: "lightgreen",
-            }}
-          >
-            🅁
-          </span>{" "}
-          🄳 🄸 🄴
-        </div>
-        <div>
-          <p
-            style={{
-              textAlign: "center",
-              fontSize: "0.50em",
-              color: "white",
-            }}
-          >
-            By Ron's Fun & Games
-          </p>
-        </div>
-
-        <div style={{ color: "white" }}></div>
+export default function Header() {
+  return (
+    <div>
+      <div style={{ fontSize: "2.5em", color: "white", marginTop: 0 }}>
+        🅆 🄾{" "}
+        <span
+          style={{
+            fontSize: "80px",
+            backgroundColor: "#435057",
+            color: "lightgreen",
+          }}
+        >
+          🅁
+        </span>{" "}
+        🄳 🄸 🄴
       </div>
-    );
-  }
+      <div>
+        <p
+          style={{
+            textAlign: "center",
+            fontSize: "0.70em",
+            color: "white",
+            marginTop: 0,
+          }}
+        >
+          By Ron's Fun & Games
+        </p>
+      </div>
+      <Buttons />
+    </div>
+  );
 }
-export default Header;

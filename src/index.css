@@ -15,39 +15,28 @@ body {
   font-size: calc(10px + 2vmin);
   color: white;
 }
-/*
-.keypad > div {
-  background: #eee;
-  text-transform: lowercase;
-  color: black;
-  margin-top: 8px;
-  margin-bottom: 1px;
-  padding-left: 4px;
-  padding-right: 4px;
-  border: 1px solid white;
-  border-radius: 5px;
-  margin-right: 6px;
-  font-size: x-large;
-}
-*/
 
 .keypad {
   max-width: 500px;
-  margin: 10px auto;
+  margin: 5px auto;
   text-align: center;
 }
 
 .keypad > div {
+  text-transform: uppercase;
   background: #eee;
-  width: 40px;
-  height: 50px;
+  width: 28px;
+  height: 38px;
   color: black;
-
   display: inline-flex;
   justify-content: center;
-  line-height: 50px;
+  line-height: 38px;
   border-radius: 6px;
-  margin: 5px;
+  margin: 3px;
+}
+
+#key_E {
+  width: 2.25em;
 }
 
 .keypad > div.lightgreen {
@@ -78,12 +67,12 @@ body {
   display: block;
   background: #eee;
   color: black;
-  width: 52px;
-  height: 52px;
+  width: 45px;
+  height: 45px;
   border: 1px solid black;
   margin: 4px;
   text-align: center;
-  line-height: 52px;
+  line-height: 45px;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 2.1em;

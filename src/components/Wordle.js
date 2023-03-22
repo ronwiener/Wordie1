@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
 import useWordle from "../hooks/useWordle";
 import Grid from "./Grid";
-import Keypad1 from "./Keypad1";
+import Keypad from "./Keypad";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 export default function Wordle({ solution }) {
   const [message, setMessage] = useState("Can you guess the word?");
   const { currentGuess, handleKeyup, guesses, isCorrect, usedKeys, turn } =
     useWordle(solution);
+
+  const theme = useTheme();
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
 
   useEffect(() => {
     console.log(solution);
@@ -28,11 +33,17 @@ export default function Wordle({ solution }) {
     return () => window.removeEventListener("keyup", handleKeyup);
   }, [handleKeyup, isCorrect, turn, solution]);
 
+  /*
+resetGame = () => {
+    useWordle();
+}
+  */
+
   return (
     <>
       <div
         style={{
-          fontSize: "0.85em",
+          fontSize: matchesSM ? "0.95em" : "1.2em",
           paddingBottom: "8px",
           color: "lightgreen",
         }}
@@ -40,7 +51,7 @@ export default function Wordle({ solution }) {
         {message}
       </div>
       <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />
-      <Keypad1 usedKeys={usedKeys} onClick={(key) => handleKeyup({ key })} />
+      <Keypad usedKeys={usedKeys} onClick={(key) => handleKeyup({ key })} />
     </>
   );
 }

@@ -1,40 +1,44 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import Filter6Icon from "@mui/icons-material/Filter6Rounded";
 import Typography from "@mui/material/Typography";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 export default function Buttons() {
-  return (
-    <div className="buttons">
-      <Link to="appsix" style={{ textDecoration: "none" }}>
-        <Filter6Icon
-          style={{
-            paddingRight: "40px",
-            fontSize: "30px",
-            color: "white",
-            marginTop: "12px",
-          }}
-        />
-        <Typography
-          style={{
-            lineHeight: "0.75em",
-            fontSize: "20px",
-            color: "white",
-            paddingRight: "30px",
-            marginBottom: "15px",
-          }}
-        >
-          letter game
-        </Typography>
-      </Link>
+  const theme = useTheme();
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
 
-      <IconButton onClick={this.props.resetGame}>
+  return (
+    <div className="buttons" style={{ display: "inline-flex" }}>
+      <Filter6Icon
+        style={{
+          marginTop: "10px",
+          marginRight: matchesSM ? "0px" : "15px",
+          paddingLeft: matchesSM ? "25px" : "18px",
+          fontSize: matchesSM ? "22px" : "26px",
+          color: "white",
+        }}
+      />
+      <Typography
+        style={{
+          marginTop: "15px",
+          lineHeight: "0.75em",
+          fontSize: matchesSM ? "14px" : "18px",
+          color: "white",
+          paddingRight: matchesSM ? "5px" : "20px",
+          paddingLeft: matchesSM ? "5px" : "2px",
+        }}
+      >
+        letter game
+      </Typography>
+
+      <IconButton>
         <RestartAltIcon
           style={{
-            paddingLeft: "120px",
-            fontSize: "40px",
+            paddingLeft: matchesSM ? "140px" : "230px",
+            fontSize: "30px",
             color: "#43D312",
           }}
         />
