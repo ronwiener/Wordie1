@@ -1,11 +1,6 @@
 import React from "react";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { useTheme } from "@mui/material/styles";
 
 export default function Row({ guess, currentGuess }) {
-  const theme = useTheme();
-  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
-
   if (guess) {
     return (
       <div className="row past">
