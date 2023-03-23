@@ -1,9 +1,9 @@
 import React from "react";
-import Buttons from "./Buttons";
+import Buttons1 from "./Buttons1";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
-export default function Header() {
+export default function Header1() {
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -41,7 +41,7 @@ export default function Header() {
           By Ron's Fun & Games
         </p>
       </div>
-      <Buttons />
+      <Buttons1 />
     </div>
   );
 }

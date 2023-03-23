@@ -31,12 +31,13 @@ body {
   display: inline-flex;
   justify-content: center;
   line-height: 38px;
-  border-radius: 6px;
+  border-radius: 5px;
   margin: 3px;
 }
 
 #key_E {
-  width: 2.25em;
+  width: 2.35em;
+  font-size: 1.2em;
 }
 
 .keypad > div.lightgreen {
@@ -70,12 +71,12 @@ body {
   width: 45px;
   height: 45px;
   border: 1px solid black;
-  margin: 4px;
+  margin: 2px;
   text-align: center;
   line-height: 45px;
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 2.1em;
+  font-size: 2em;
 }
 
 .row > div.lightgreen {
@@ -107,6 +108,9 @@ body {
 }
 .row > div:nth-child(5) {
   animation-delay: 0.8s;
+}
+.row > div:nth-child(6) {
+  animation-delay: 1s;
 }
 
 .row.current > div.filled {

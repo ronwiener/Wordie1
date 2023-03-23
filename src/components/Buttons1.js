@@ -7,13 +7,13 @@ import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
-export default function Buttons() {
+export default function Buttons1() {
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <div className="buttons" style={{ display: "inline-flex" }}>
-      <Link to="appsix" style={{ textDecoration: "none" }}>
+      <Link to="/" style={{ textDecoration: "none" }}>
         <Filter6Icon
           style={{
             marginTop: "5px",
