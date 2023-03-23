@@ -106,6 +106,15 @@ const useWordle = (solution) => {
       });
       return;
     }
+
+    if (key === "_") {
+      if (currentGuess.length < 5) {
+        setCurrentGuess((prev) => {
+          return prev + key;
+        });
+      }
+    }
+
     if (/^[A-Za-z]$/.test(key)) {
       if (currentGuess.length < 6) {
         setCurrentGuess((prev) => {

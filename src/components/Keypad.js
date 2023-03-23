@@ -24,6 +24,7 @@ export default function Keypad1({ usedKeys, onClick }) {
       { key: "j" },
       { key: "k" },
       { key: "l" },
+      { key: "_" },
     ],
     [
       { key: "Enter", icon: "⏎" },
