@@ -11,6 +11,10 @@ export default function Buttons() {
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
 
+  const onNewGame = () => {
+    window.location.reload();
+  };
+
   return (
     <div className="buttons" style={{ display: "inline-flex" }}>
       <Link to="appsix" style={{ textDecoration: "none" }}>
@@ -26,7 +30,7 @@ export default function Buttons() {
         <Typography
           style={{
             marginTop: "2px",
-            marginBottom: "5px",
+            marginBottom: "8px",
             lineHeight: "0.75em",
             fontSize: matchesSM ? "14px" : "18px",
             color: "white",
@@ -38,7 +42,7 @@ export default function Buttons() {
         </Typography>
       </Link>
 
-      <IconButton>
+      <IconButton onClick={onNewGame}>
         <RestartAltIcon
           style={{
             paddingLeft: matchesSM ? "160px" : "230px",

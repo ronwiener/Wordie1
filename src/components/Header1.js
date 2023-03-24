@@ -11,7 +11,7 @@ export default function Header1() {
     <div>
       <div
         style={{
-          fontSize: matchesSM ? "2em" : "2.5em",
+          fontSize: matchesSM ? "2.25em" : "2.5em",
           color: "white",
           textAlign: "center",
           marginTop: "0px",
@@ -33,7 +33,7 @@ export default function Header1() {
         <p
           style={{
             textAlign: "center",
-            fontSize: "0.70em",
+            fontSize: "0.75em",
             color: "white",
             marginTop: 0,
           }}

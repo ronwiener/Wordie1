@@ -7,7 +7,7 @@ const useWordle = (solution) => {
   const [history, setHistory] = useState([]); //each guess is a string
   const [isCorrect, setIsCorrect] = useState(false);
   const [usedKeys, setUsedKeys] = useState({}); //ex. {a: 'green', b: 'yellow'}
-
+  const [notInWordList, setNotInWordList] = useState(false);
   //format a guess into an array of letter objects
   //e.g. [key: "a", color: "yellow"]
   const formatGuess = () => {
@@ -85,6 +85,7 @@ const useWordle = (solution) => {
   //if user presses enter, add the new  guess
   const handleKeyup = ({ key }) => {
     if (key === "Enter") {
+      // if(!wordList)
       //only add guess if turn if less than 5
       if ((turn > 5) & isCorrect) {
         return;
@@ -101,6 +102,7 @@ const useWordle = (solution) => {
       addNewGuess(formatted);
     }
     if (key === "Backspace") {
+      setNotInWordList(false);
       setCurrentGuess((prev) => {
         return prev.slice(0, -1);
       });
@@ -122,7 +124,15 @@ const useWordle = (solution) => {
     }
   };
 
-  return { turn, currentGuess, guesses, isCorrect, usedKeys, handleKeyup };
+  return {
+    turn,
+    currentGuess,
+    guesses,
+    isCorrect,
+    usedKeys,
+    handleKeyup,
+    notInWordList,
+  };
 };
 
 export default useWordle;
