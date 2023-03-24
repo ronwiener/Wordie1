@@ -11,7 +11,7 @@ export default function Header1() {
     <div>
       <div
         style={{
-          fontSize: matchesSM ? "2.25em" : "2.5em",
+          fontSize: matchesSM ? "2.5em" : "2.75em",
           color: "white",
           textAlign: "center",
           marginTop: "0px",
@@ -20,7 +20,7 @@ export default function Header1() {
         🅆 🄾{" "}
         <span
           style={{
-            fontSize: matchesSM ? "50px" : "80px",
+            fontSize: matchesSM ? "55px" : "80px",
             backgroundColor: "#435057",
             color: "lightgreen",
           }}
