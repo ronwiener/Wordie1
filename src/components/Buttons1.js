@@ -11,7 +11,7 @@ export default function Buttons1() {
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const onNewGame = () => {
+  const onResetGame = () => {
     window.location.reload();
   };
 
@@ -42,7 +42,7 @@ export default function Buttons1() {
         </Typography>
       </Link>
 
-      <IconButton onClick={onNewGame}>
+      <IconButton onClick={onResetGame}>
         <RestartAltIcon
           style={{
             paddingLeft: matchesSM ? "160px" : "230px",
