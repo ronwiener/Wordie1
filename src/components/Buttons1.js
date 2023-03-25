@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
-import Filter6Icon from "@mui/icons-material/Filter6Rounded";
+import Filter5Icon from "@mui/icons-material/Filter5Rounded";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
@@ -12,13 +12,13 @@ export default function Buttons1() {
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
 
   const onResetGame = () => {
-    window.location.reload();
+    window.location.assign("https://ronsword.netlify.app/sixapp");
   };
 
   return (
     <div className="buttons" style={{ display: "inline-flex" }}>
       <Link to="/" style={{ textDecoration: "none" }}>
-        <Filter6Icon
+        <Filter5Icon
           style={{
             marginTop: "5px",
             marginRight: matchesSM ? "0px" : "15px",

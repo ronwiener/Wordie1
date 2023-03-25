@@ -12,7 +12,6 @@ function AppFive() {
     }
     let text_data = await res.text();
     let wordList = text_data.split("\n");
-    console.log(wordList);
     const randomSolution =
       wordList[Math.floor(Math.random() * wordList.length)];
     setSolution(randomSolution);
