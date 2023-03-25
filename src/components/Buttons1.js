@@ -12,7 +12,7 @@ export default function Buttons1() {
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
 
   const onResetGame = () => {
-    window.location.assign("https://ronsword.netlify.app/sixapp");
+    window.location.assign("https://ronsword.netlify.app");
   };
 
   return (
