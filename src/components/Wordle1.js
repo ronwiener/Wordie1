@@ -2,13 +2,21 @@ import React, { useEffect, useState } from "react";
 import useWordle1 from "../hooks/useWordle1";
 import Grid1 from "./Grid1";
 import Keypad1 from "./Keypad1";
+import Toast from "./Toast";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
 export default function Wordle1({ solution }) {
   const [message, setMessage] = useState("Can you guess the word?");
-  const { currentGuess, handleKeyup, guesses, isCorrect, usedKeys, turn } =
-    useWordle1(solution);
+  const {
+    currentGuess,
+    handleKeyup,
+    guesses,
+    isCorrect,
+    usedKeys,
+    turn,
+    notInWordList,
+  } = useWordle1(solution);
 
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
@@ -33,12 +41,6 @@ export default function Wordle1({ solution }) {
     return () => window.removeEventListener("keyup", handleKeyup);
   }, [handleKeyup, isCorrect, turn, solution]);
 
-  /*
-resetGame = () => {
-    useWordle1();
-}
-  */
-
   return (
     <>
       <div
@@ -52,6 +54,7 @@ resetGame = () => {
       </div>
       <Grid1 currentGuess={currentGuess} guesses={guesses} turn={turn} />
       <Keypad1 usedKeys={usedKeys} onClick={(key) => handleKeyup({ key })} />
+      {notInWordList && <Toast />}
     </>
   );
 }

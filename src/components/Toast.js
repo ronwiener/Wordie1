@@ -4,16 +4,16 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Toast = () => {
   useEffect(() => {
-    toast("Sorry, but that guess is not in the word list");
+    toast("Sorry, but that guess is not in the word list.  Please Delete.");
   }, []);
   return (
     <>
       <ToastContainer
         position="top-center"
-        autoClose={5000}
+        autoClose={4000}
         hideProgressBar
         closeButton={false}
-        theme="dark"
+        theme="light"
         limit={1}
       ></ToastContainer>
     </>

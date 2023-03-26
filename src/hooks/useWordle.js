@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const useWordle = (solution) => {
   const [turn, setTurn] = useState(0);
@@ -8,6 +8,8 @@ const useWordle = (solution) => {
   const [isCorrect, setIsCorrect] = useState(false);
   const [usedKeys, setUsedKeys] = useState({}); //ex. {a: 'green', b: 'yellow'}
   const [notInWordList, setNotInWordList] = useState(false);
+  const [textData, setTextData] = useState();
+
   //format a guess into an array of letter objects
   //e.g. [key: "a", color: "yellow"]
   const formatGuess = () => {
@@ -81,11 +83,28 @@ const useWordle = (solution) => {
     setCurrentGuess("");
   };
 
+  let downloadDictionary = async () => {
+    let res = await fetch("fiveLetterWords.txt");
+    if (res.status !== 200) {
+      throw new Error("Sorry Server not responding");
+    }
+    let text_data = await res.text();
+    let wordList = text_data.split("\n");
+    setTextData(wordList);
+  };
+
+  useEffect(() => {
+    downloadDictionary();
+  }, []);
+
   //handle keyup event & track current guess
   //if user presses enter, add the new  guess
   const handleKeyup = ({ key }) => {
     if (key === "Enter") {
-      // if(!wordList)
+      if (!textData.map((w) => w).includes(currentGuess)) {
+        setNotInWordList(true);
+        return;
+      }
       //only add guess if turn if less than 5
       if ((turn > 5) & isCorrect) {
         return;
@@ -136,3 +155,8 @@ const useWordle = (solution) => {
 };
 
 export default useWordle;
+
+/*
+make method getWordList and use fetch to get 5lettertext file.  
+set to wordList and set in state.  follow example of downloadDictionary
+*/
