@@ -4,7 +4,6 @@ const useWordle = (solution) => {
   const [turn, setTurn] = useState(0);
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, setGuesses] = useState([...Array(6)]); //each guess is an array
-  const [history, setHistory] = useState([]); //each guess is a string
   const [isCorrect, setIsCorrect] = useState(false);
   const [usedKeys, setUsedKeys] = useState({}); //ex. {a: 'green', b: 'yellow'}
   const [notInWordList, setNotInWordList] = useState(false);
@@ -49,9 +48,7 @@ const useWordle = (solution) => {
       newGuesses[turn] = formattedGuess;
       return newGuesses;
     });
-    setHistory((prevHistory) => {
-      return [...prevHistory, currentGuess];
-    });
+
     setTurn((prevTurn) => {
       return prevTurn + 1;
     });
@@ -107,10 +104,6 @@ const useWordle = (solution) => {
       }
       //only add guess if turn if less than 5
       if ((turn > 5) & isCorrect) {
-        return;
-      }
-      //do not allow duplicate words
-      if (history.includes(currentGuess)) {
         return;
       }
       //check work is 5 characters long
