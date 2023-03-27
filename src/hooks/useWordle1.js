@@ -130,6 +130,7 @@ const useWordle = (solution) => {
 
     if (/^[A-Za-z]$/.test(key)) {
       if (currentGuess.length < 6) {
+        setNotInWordList(false);
         setCurrentGuess((prev) => {
           return prev + key;
         });
