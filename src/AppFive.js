@@ -6,7 +6,7 @@ function AppFive() {
   const [solution, setSolution] = useState();
 
   let downloadDictionary = async () => {
-    let res = await fetch("fiveLetterWords.txt");
+    let res = await fetch("fiveWordCheck.txt");
     if (res.status !== 200) {
       throw new Error("Sorry Server not responding");
     }

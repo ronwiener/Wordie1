@@ -81,12 +81,16 @@ const useWordle = (solution) => {
   };
 
   let downloadDictionary = async () => {
-    let res = await fetch("sixLetterWords.txt");
+    let res = await fetch("sixWordCheck.txt");
     if (res.status !== 200) {
       throw new Error("Sorry Server not responding");
     }
     let text_data = await res.text();
-    let wordList = text_data.split("\n");
+    console.log(text_data);
+    let wordList = text_data.split(/\W+/).filter(function (token) {
+      return token.length === 6;
+    });
+    console.log(wordList);
     setTextData(wordList);
   };
 

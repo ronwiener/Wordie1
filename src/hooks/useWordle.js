@@ -80,12 +80,13 @@ const useWordle = (solution) => {
   };
 
   let downloadDictionary = async () => {
-    let res = await fetch("fiveLetterWords.txt");
+    let res = await fetch("fiveWordCheck.txt");
     if (res.status !== 200) {
       throw new Error("Sorry Server not responding");
     }
     let text_data = await res.text();
     let wordList = text_data.split("\n");
+    console.log(wordList);
     setTextData(wordList);
   };
 
