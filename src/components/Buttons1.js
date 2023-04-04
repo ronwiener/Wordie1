@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import IconButton from "@mui/material/IconButton";
-import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import Filter5Icon from "@mui/icons-material/Filter5Rounded";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -11,12 +9,8 @@ export default function Buttons1() {
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const onResetGame = () => {
-    window.location.assign("https://ronswordie.netlify.app");
-  };
-
   return (
-    <div className="buttons" style={{ display: "inline-flex" }}>
+    <div className="buttons" style={{ display: "flex" }}>
       <Link to="/" style={{ textDecoration: "none" }}>
         <Filter5Icon
           style={{
@@ -41,16 +35,6 @@ export default function Buttons1() {
           letter game
         </Typography>
       </Link>
-
-      <IconButton onClick={onResetGame}>
-        <RestartAltIcon
-          style={{
-            paddingLeft: matchesSM ? "160px" : "230px",
-            fontSize: "30px",
-            color: "#43D312",
-          }}
-        />
-      </IconButton>
     </div>
   );
 }
